@@ -5,14 +5,14 @@ from django.db import models
 
 class Policy(R2PublicURLMixin,models.Model):
     name = models.CharField(max_length=255)
-    policy_name = models.CharField(max_length=255)
-    policy_type = models.CharField(max_length=255)
+    policy_name = models.CharField(max_length=255, blank=True, null=True)
+    policy_type = models.CharField(max_length=255, blank=True, null=True)
     dob = models.DateField()
-    policy_number = models.CharField(max_length=100, unique=True)
-    phone_number = models.CharField(max_length=20)
-    start_date = models.DateField()
-    end_date = models.DateField()
-    sum_assured = models.DecimalField(max_digits=12, decimal_places=2)
+    policy_number = models.CharField(max_length=100, unique=True, blank=True, null=True)
+    phone_number = models.CharField(max_length=20,blank=True, null=True)
+    start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
+    sum_assured = models.PositiveIntegerField(blank=True, null=True)
     details = models.TextField(blank=True, null=True)
 
     aadhar = models.FileField(upload_to='documents/aadhar/', storage=R2PublicStorage(), null=True, blank=True)
