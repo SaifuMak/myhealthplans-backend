@@ -7,7 +7,7 @@ class Policy(R2PublicURLMixin,models.Model):
     name = models.CharField(max_length=255)
     policy_name = models.CharField(max_length=255, blank=True, null=True)
     policy_type = models.CharField(max_length=255, blank=True, null=True)
-    dob = models.DateField()
+    dob = models.DateField(blank=True, null=True)
     policy_number = models.CharField(max_length=100, unique=True, blank=True, null=True)
     phone_number = models.CharField(max_length=20,blank=True, null=True)
     start_date = models.DateField(blank=True, null=True)
