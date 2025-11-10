@@ -8,7 +8,7 @@ class Policy(R2PublicURLMixin,models.Model):
     policy_name = models.CharField(max_length=255, blank=True, null=True)
     policy_type = models.CharField(max_length=255, blank=True, null=True)
     dob = models.DateField(blank=True, null=True)
-    policy_number = models.CharField(max_length=100, unique=True, blank=True, null=True)
+    policy_number = models.CharField(max_length=200, blank=True, null=True)
     phone_number = models.CharField(max_length=20,blank=True, null=True)
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
@@ -29,7 +29,6 @@ class Policy(R2PublicURLMixin,models.Model):
         "pan": ("pan_public_url", "documents/pan/"),
         "document": ("document_public_url", "documents/policies/"),
     }
-
 
     created_at = models.DateTimeField(auto_now_add=True)
 
